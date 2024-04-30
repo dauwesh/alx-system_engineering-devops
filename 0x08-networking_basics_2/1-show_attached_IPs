@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
-# Displays all acive IPv4 addresses on the machine.
+# This script displays all active IPv4 IPs on the machine
 
-ifconfig | grep -Eo "inet (addr:)?([0-9]*\.){3}[0-9]*" | cut -b 11-
+# Use ifconfig to get IPv4 addresses and filter out only active interfaces
+ipv4_addresses=$(ifconfig | grep -oP '(?<=inet )(\d+\.\d+\.\d+\.\d+)' | grep -v '127.0.0.1')
+
+# Print the IPv4 addresses
+echo "$ipv4_addresses"
 
