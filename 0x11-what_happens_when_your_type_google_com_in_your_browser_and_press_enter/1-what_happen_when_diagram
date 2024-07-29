@@ -1,0 +1,48 @@
+Your Browser
+    |
+    |---> DNS Request
+    |         |
+    |         V
+    |    DNS Resolver
+    |         |
+    |         V
+    |   Google IP Address
+    |         |
+    |---------|--> TCP/IP Handshake
+    |         |
+    |         V
+    |------> Firewall
+    |         |
+    |         V
+    |---> HTTPS/SSL
+    |         |
+    |         V
+    |---> Load Balancer
+    |         |
+    |         V
+    |---> Web Server
+    |         |
+    |         V
+    |---> Application Server
+    |         |
+    |         V
+    |---> Database
+    |         |
+    |         V
+    |---> Application Server
+    |         |
+    |         V
+    |---> Web Server
+    |         |
+    |         V
+    |---> Load Balancer
+    |         |
+    |         V
+    |------> Firewall
+    |         |
+    |         V
+    |<--- Encrypted Traffic
+    |         |
+    |         V
+    Your Browser
+

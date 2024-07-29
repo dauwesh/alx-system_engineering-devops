@@ -1,0 +1,73 @@
+The Process that takes place When You Type"https://www.google.com" in Your Browser and Press Enter
+
+When you type "https://www.google.com" into your browser and press Enter, a complex series of events unfolds behind the scenes to deliver the content you requested. Let’s break down the process step-by-step:
+
+1. DNS Request
+
+**Domain Name System (DNS) Resolution**:
+- The browser checks its cache to see if it already knows the IP address for "www.google.com".
+- If not found in the cache, the browser queries the local DNS resolver (often provided by your ISP).
+- The local DNS resolver checks its cache. If it doesn’t have the address, it contacts one of the root DNS servers.
+- The root DNS server responds with the address of a Top-Level Domain (TLD) server (for .com domains).
+- The local resolver then queries the TLD server, which returns the address of Google’s authoritative DNS server.
+- Finally, the local resolver queries Google’s DNS server, which returns the IP address of "www.google.com".
+
+2. TCP/IP
+
+**Establishing a Connection**:
+- With the IP address in hand, your browser uses the Transmission Control Protocol (TCP) to establish a connection with Google’s server.
+- The TCP handshake involves three steps:
+  - Your browser sends a SYN (synchronize) packet to the server.
+  - The server responds with a SYN-ACK (synchronize-acknowledge) packet.
+  - Your browser sends an ACK (acknowledge) packet back to the server.
+
+This establishes a reliable connection over the Internet Protocol (IP).
+
+3. Firewall
+
+**Network Security**:
+- As packets travel between your browser and Google’s server, they pass through various firewalls. Firewalls are security systems that monitor and control incoming and outgoing network traffic based on predetermined security rules.
+- Both your local network and Google’s data centers use firewalls to protect against unauthorized access and malicious attacks.
+
+4. HTTPS/SSL
+
+**Secure Communication**:
+- Given the URL starts with "https://", the connection is secured using HTTPS (HyperText Transfer Protocol Secure).
+- SSL/TLS Handshake:
+  - Your browser and Google’s server negotiate the encryption protocol to use.
+  - The server sends a digital certificate to the browser to authenticate its identity.
+  - Your browser verifies the certificate against a trusted Certificate Authority (CA).
+  - Once verified, your browser and the server generate session keys to encrypt the data.
+
+5. Load-Balancer
+
+**Distributing the Load**:
+- Google employs load balancers to manage traffic efficiently across multiple servers.
+- The load balancer receives your request and forwards it to one of the many available web servers, balancing the load to ensure no single server is overwhelmed.
+
+6. Web Server
+
+**Handling the Request**:
+- The selected web server receives your request for "https://www.google.com".
+- The web server processes the request, interpreting the URL and preparing to deliver the appropriate content.
+
+7. Application Server
+
+**Dynamic Content Generation**:
+- Often, the web server will interact with an application server to generate dynamic content.
+- For example, the application server might run a search query if you were requesting a Google search.
+- The application server executes the necessary backend logic, processes any necessary computations, and prepares the data to be sent back to the web server.
+
+8. Database
+
+**Data Retrieval**:
+- If the request requires accessing stored data (like user profiles, search results, etc.), the application server queries the database.
+- Google’s databases are highly optimized and distributed to handle vast amounts of data quickly and efficiently.
+- The database retrieves the requested data and sends it back to the application server.
+
+Now Back to the Browser
+
+**Rendering the Content**:
+- The application server sends the processed data back to the web server, which then packages it into an HTTP response.
+- The response travels back through the load balancer, the firewalls, and the Internet to your browser.
+- Your browser receives the data, decrypts it, and renders the web page, displaying the content of "www.google.com".
